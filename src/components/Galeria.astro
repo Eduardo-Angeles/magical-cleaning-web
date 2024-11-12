@@ -1,0 +1,72 @@
+---
+import "photoswipe/style.css";
+
+// Importa los datos del archivo JSON
+import imageSizes from '../data/image-sizes.json';
+
+
+// Usa los datos del archivo JSON para las imágenes
+const photos = Array.from({ length: 9 }, (_, i) => ({
+  src: `/archivo-page/1/gallery/thumbnails/img-${i + 1}.webp`,
+  href: `/archivo-page/1/gallery/img-${i + 1}.webp`,
+  width: imageSizes[i].width,
+  height: imageSizes[i].height,
+}));
+---
+
+<masonry-layout
+  gap="24"
+  maxcolwidth="500"
+  class="max-w-7xl lg:mx-auto mx-4 py-20"
+  id="gallery"
+>
+  {
+    // Mapea sobre los datos del archivo JSON
+    photos.map(({ src, href, height, width }, i) => (
+      <a
+        class="group rounded-xl hover:scale-105 hover:contrast-[110%] transition-all relative"
+        href={href}
+        target="_blank"
+        data-cropped="true"
+        data-pswp-width={width}
+        data-pswp-height={height}
+      >
+        <img
+          class="rounded-xl object-cover w-full h-auto"
+          loading="lazy"
+          src={src}
+          alt={`Fotografía ${i + 1} de los premios ESLAND`}
+          style={`aspect-ratio: ${width} / ${height}; object-fit: cover;`}
+        />
+        <img
+          class="blur-md opacity-0 group-hover:opacity-100 absolute inset-0 transition contrast-150 -z-10 object-cover"
+          loading="lazy"
+          src={src}
+          alt={`Imagen con efecto blur para hacer de sombra de la fotografía ${i + 1} de los premios ESLAND`}
+          style={`aspect-ratio: ${width} / ${height}; object-fit: cover;`}
+        />
+      </a>
+    ))
+  }
+</masonry-layout>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox"
+  import "@appnest/masonry-layout"
+
+  document.addEventListener("astro:page-load", () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: "#gallery",
+      children: "a",
+      pswpModule: () => import("photoswipe"),
+    })
+
+    lightbox.init()
+  })
+</script>
+
+<style is:global>
+  .pswp {
+    --pswp-bg: #00012a;
+  }
+</style>
