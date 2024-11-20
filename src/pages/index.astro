@@ -1,26 +1,25 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import HeroContainer from '@components/HeroContainer.astro';
 import Numeros from '@components/Numeros.astro';
 import Reviews from '@components/Reviews.astro';
 import Bento from '@components/Bento.astro';
 import Video from '@components/Video.astro';
+import Hero from '@components/Hero.astro';
 ---
 
 <Layout title="Magical Cleaning Services."
 	description="Magical Cleaning Services.">
 
 	<main>
-		<Video />
-		
-		<Numeros />
-		<Reviews />
-		<div class="bg-white p-4">
-			<h2 class="lg:mt-12 mt-4 relative text-4xl lg:text-6xl text-center text-customBlue font-bold mb-10 lg:mb-20 underline-pink">
+    <Hero />
+		<div>
+			<h2 class="lg:mt-12 mt-4 relative text-4xl lg:text-6xl text-center text-customBlue font-bold mb-10 lg:mb-20 underline-pink text-heading-1">
 				Our Services
 			</h2>
             <Bento />
-        </div>
+    </div>
+      <Numeros />
+		<Reviews />
 	</main>
 </Layout>
 

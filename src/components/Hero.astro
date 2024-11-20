@@ -1,0 +1,61 @@
+---
+import Container from './shared/Container.astro';
+import Button from "./Button.astro";
+import Paragraph from './shared/Paragraph.astro';
+---
+<section class="relative pt-32 lg:pt-36">
+    <Container className={"flex flex-col lg:flex-row gap-10 lg:gap-12"}>
+        <div class="absolute w-full lg:w-1/2 inset-y-0 lg:right-0 ">
+            <span class="absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-pink-400 blur-xl opacity-60 lg:opacity-95 lg:block hidden"></span>
+            <span class="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"></span>
+        </div>
+        <span class="w-4/12 lg:w-2/12 aspect-square bg-gradient-to-tr from-primary to-pink-400 absolute -top-5 lg:left-0 rounded-full skew-y-12 blur-2xl opacity-40 skew-x-12 rotate-90"></span>
+        <div class="relative flex flex-col items-center text-center lg:text-left lg:py-7 xl:py-8 
+        lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
+            
+            <h1 class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight xl:text-6xl/tight
+             font-bold text-heading-1">
+             <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-20% to-pink-600"> Magical Cleaning</span> Services.
+            </h1>
+            <Paragraph className="mt-8 font-light ">
+                House and Apartment Cleaning in Jersey City and Surrounding Areas – Let Our Expert Team Take Care of Your Home!.
+            </Paragraph>
+            <div class="mt-10  w-full flex max-w-md mx-auto lg:mx-0">
+                <div class="flex sm:flex-row flex-col gap-5 w-full">
+                    <form action="#"  class="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-heading-3 shadow-lg shadow-box-shadow
+                      border border-box-border bg-box-bg rounded-full ease-linear focus-within:bg-body  focus-within:border-primary">
+                        <span class="min-w-max pr-2 border-r border-box-border">
+                            <svg viewBox="0 0 24 24" 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="24" 
+                                    height="24" 
+                                    fill="currentColor">
+                                <style>
+                                @keyframes phone {
+                                    0%, to { transform: rotate(0deg); transform-origin: 0 100%; }
+                                    10%, 90% { transform: rotate(2deg); }
+                                    20%, 40%, 60% { transform: rotate(-4deg); }
+                                    30%, 50%, 70% { transform: rotate(4deg); }
+                                    80% { transform: rotate(-2deg); }
+                                }
+                                        </style>
+                                        <path fill="currentColor" d="M15.758 19a10.761 10.761 0 01-7.603-3.162A10.805 10.805 0 015 8.22c0-.854.339-1.673.941-2.277A3.21 3.21 0 018.214 5c.18-.001.36.015.537.05.172.024.34.067.503.125a.699.699 0 01.455.525l.957 4.2a.7.7 0 01-.182.644c-.09.098-.098.105-.957.553a6.93 6.93 0 003.402 3.423c.454-.868.461-.875.559-.966a.699.699 0 01.643-.182l4.191.959a.699.699 0 01.503.455A3.046 3.046 0 0119 15.829a3.223 3.223 0 01-.968 2.255 3.21 3.21 0 01-2.274.916zM8.215 6.4a1.822 1.822 0 00-1.817 1.82 9.396 9.396 0 002.744 6.63 9.36 9.36 0 006.617 2.75 1.821 1.821 0 001.817-1.82v-.231l-3.242-.75-.202.386c-.315.609-.545 1.05-1.132.812a8.276 8.276 0 01-5.016-5.047c-.251-.546.224-.798.824-1.113l.385-.189L8.444 6.4h-.23z" 
+                                    style="animation:phone 1.5s cubic-bezier(1,.01,.75,2.17) both infinite"/>
+                            </svg>                                                                                                      
+                        </span>
+                        <input type="tel" name="" id="" placeholder="8624017109" class="w-full py-3 outline-none bg-transparent">
+                        <Button class="md:text-sm lg:text-base md:py-2" url="https://www.youtube.com/watch?v=O43x26hiolw">
+                            20% off
+                        </Button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
+            <img src="/bento2.jpg" alt="Hero image" width="2350" height="2359" class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover lg:max-h-none max-h-96">
+        </div>
+    </Container>
+
+
+</section>
