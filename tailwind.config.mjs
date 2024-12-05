@@ -23,6 +23,7 @@ module.exports = {
 		},
 	},
 	plugins: [
+		require('@tailwindcss/forms'),
 		animations,
 		({ addComponents }) => {
 		  addComponents({

@@ -15,6 +15,7 @@
     "@astrojs/preact": "^3.5.3",
     "@astrojs/tailwind": "^5.1.2",
     "@fontsource-variable/onest": "^5.1.0",
+    "@tailwindcss/forms": "^0.5.9",
     "astro": "^4.16.10",
     "photoswipe": "^5.4.4",
     "preact": "^10.24.3",
