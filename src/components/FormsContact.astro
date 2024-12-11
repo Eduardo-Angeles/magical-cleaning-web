@@ -1,3 +1,12 @@
+---
+import SocialPil from '../components/SocialPil.astro';
+import Gmail from '../components/icons/Gmail.astro';
+import Facebook from './icons/Facebook.astro';
+import Instagram from './icons/Instagram.astro';
+import Tiktok from './icons/Tiktok.astro';
+import Yelp from './icons/Yelp.astro';
+---
+
 <section class="relative flex flex-wrap lg:h-screen lg:items-center">
   <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
     <div class="mx-auto max-w-lg text-center">
@@ -83,14 +92,102 @@
         </div>
       </div>
 
-      <div class="flex items-center justify-between">
+      <div class="flex justify-center">
         <button
           type="submit"
-          class="inline-block rounded-lg bg-pink-500 px-5 py-3 text-sm font-medium text-white"
+          class="inline-block rounded-lg bg-pink-500 px-20 py-3 text-sm font-medium text-white"
         >
           Submit
         </button>
       </div>
+
+        <nav class="flex flex-wrap gap-x-4 gap-y-4 mt-8 justify-center">
+          <SocialPil href="https://mx.linkedin.com/"
+            class={` 
+              border border-blue-400 rounded-full 
+              flex justify-center items-center gap-x-2 
+              py-2 px-4
+              transition 
+              hover:scale-110
+              bg-blue-400 hover:bg-blue-600
+            `}
+          >
+            <Facebook class="size-6" />
+            Facebook
+          </SocialPil>
+
+          <SocialPil href="https://mx.linkedin.com/"
+            class={` 
+              border border-orange-400 rounded-full 
+              flex justify-center items-center gap-x-2 
+              py-2 px-4
+              transition 
+              hover:scale-110
+              bg-orange-400 hover:bg-orange-600
+            `}
+          >
+            <Instagram class="size-6" />
+            Instagram
+          </SocialPil>
+
+          <SocialPil href="https://mx.linkedin.com/"
+            class={` 
+              border border-black rounded-full 
+              flex justify-center items-center gap-x-2 
+              py-2 px-4
+              transition 
+              hover:scale-110
+              bg-gray-700 hover:bg-gray-400
+              text-white
+            `}
+          >
+            <Tiktok class="size-6" />
+            Tiktok
+          </SocialPil>
+
+          <SocialPil href="https://mx.linkedin.com/"
+            class={` 
+              border border-red-400 rounded-full 
+              flex justify-center items-center gap-x-2 
+              py-2 px-4
+              transition 
+              hover:scale-110
+              bg-red-400 hover:bg-red-600
+            `}
+          >
+            <Yelp class="size-6" />
+             Yelp
+          </SocialPil>
+
+          <SocialPil href="https://mx.linkedin.com/"
+            class={` 
+              border border-green-400 rounded-full 
+              flex justify-center items-center gap-x-2 
+              py-2 px-4
+              transition 
+              hover:scale-110
+              bg-green-400 hover:bg-green-600
+            `}
+          >
+            <Facebook class="size-6" />
+            Phone
+          </SocialPil>
+
+          <SocialPil href="mailto:info@magical-cleaningservice.com"
+            class={` 
+              border border-red-400 rounded-full 
+              flex justify-center items-center gap-x-2 
+              py-2 px-4
+              transition 
+              hover:scale-110
+              bg-red-400 hover:bg-red-600
+            `}
+          >
+            <Gmail class="size-6" />
+            E-mail
+          </SocialPil>
+
+        </nav>
     </form>
   </div>
 

@@ -6,6 +6,8 @@ import Paragraph from '../shared/Paragraph.astro';
 import FormsContact from "@components/FormsContact.astro";
 import Numeros from "@components/Numeros.astro";
 import Reviews from "@components/Reviews.astro";
+import Services from "@components/Services.astro";
+import Bento from "@components/Bento.astro";
 ---
 
 <Layout title="Magical Cleaning Services - Contac."
@@ -47,10 +49,10 @@ import Reviews from "@components/Reviews.astro";
                 class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight
                 font-bold text-heading-1"
               >
-              For a limited time only! <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-pink-600">20% discount</span> on your next cleaning.
+              <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-pink-600">Ready to shine?</span> Contact us! 
               </h1>
               <Paragraph className={"pt-10"}>
-                Discover why we're the best: Quality cleaning within your reach in Jersey City and surrounding areas.
+                Looking for a professional cleaning service that goes the extra mile? Look no further. Our team is committed to providing exceptional cleaning services in Jersey City and its neighboring areas.
               </Paragraph>
               <div class="mx-auto max-w-md sm:max-w-xl pt-10">
                 <Button class="md:text-sm lg:text-base md:py-2" url="https://www.youtube.com/watch?v=O43x26hiolw">
@@ -61,7 +63,29 @@ import Reviews from "@components/Reviews.astro";
           </div>
         </Container>
       </section>
-      <Numeros />
-      <Reviews />  
       <FormsContact />
+      <Numeros />
+      <Reviews />
+      <Services />
+      <h2 class="lg:mt-20 mt-10 relative text-4xl lg:text-6xl text-center text-customBlue font-bold mb-10 lg:mb-06 underline-pink text-heading-1">
+				Our Services
+			</h2>
+      <Bento />
+       
+      
 </Layout>  
+
+<style>
+  .underline-pink::after {
+    content: '';
+    display: block;
+    width: 120px; /* Ajusta este valor para cambiar el ancho de la línea */
+    height: 2px; /* Grosor de la línea */
+    background-color: #FF69B4; /* Color rosa */
+    position: absolute;
+    bottom: -10px; /* Ajusta esta distancia según sea necesario */
+    left: 50%; /* Centra la línea horizontalmente */
+    transform: translateX(-50%); /* Centra la línea horizontalmente */
+  }
+
+</style>
