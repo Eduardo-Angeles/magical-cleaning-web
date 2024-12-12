@@ -1,0 +1,68 @@
+<script is:inline data-astro-rerun>
+    function setupMenuToggle() {
+        // Selecciona los elementos del DOM
+        const toggleMenu = document.querySelector("[data-toggle-nav]");
+        const navbar = document.querySelector("[data-navbar]");
+        const overlayNav = document.querySelector("[data-nav-overlay]");
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+
+        // Verifica si el botón de menú existe
+        if (toggleMenu && navbar && overlayNav) {
+            // Añade un evento de clic al botón de menú
+            toggleMenu.addEventListener("click", e => {
+                e.preventDefault();
+                const isOpen = toggleMenu.getAttribute("data-open-nav") === "true";
+                toggleMenu.setAttribute("data-open-nav", !isOpen ? "true" : "false");
+                overlayNav.setAttribute("data-is-visible", !isOpen ? "true" : "false");
+                document.body.classList.toggle("!overflow-y-hidden", !isOpen);
+                navbar.style.height = !isOpen ? `${navbar.scrollHeight}px` : "0px";
+                navbar.classList.toggle('hidden', isOpen); // Mostrar/ocultar el menú
+
+                // Animar las líneas del botón
+                if (line1 && line2 && line3) {
+                    line1.classList.toggle('rotate-45', !isOpen);
+                    line2.classList.toggle('opacity-0', !isOpen);
+                    line3.classList.toggle('-rotate-45', !isOpen);
+                }
+            });
+
+            // Añade un evento de clic al overlay para cerrarlo
+            overlayNav.addEventListener("click", () => {
+                toggleMenu.setAttribute("data-open-nav", "false");
+                overlayNav.setAttribute("data-is-visible", "false");
+                document.body.classList.remove("!overflow-y-hidden");
+                navbar.style.height = "0px";
+                navbar.classList.add('hidden'); // Ocultar el menú
+
+                // Restaurar las líneas del botón
+                if (line1 && line2 && line3) {
+                    line1.classList.remove('rotate-45');
+                    line2.classList.remove('opacity-0');
+                    line3.classList.remove('-rotate-45');
+                }
+            });
+        } else {
+            console.error('El elemento toggleMenu, navbar o overlayNav no se encontró en el DOM.');
+        }
+    }
+
+    // Asegura que el script se ejecute en cada carga de página y después de cada transición de vista
+    document.addEventListener('astro:page-load', setupMenuToggle);
+    document.addEventListener('astro:after-swap', setupMenuToggle);
+    setupMenuToggle();
+</script>
+
+<!-- HTML del componente -->
+<button data-toggle-nav data-open-nav="false" class="lg:hidden lg:invisible outline-none w-7 h-auto flex flex-col relative">
+    <span id="line1" class="w-6 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear"></span>
+    <span id="line2" class="w-6 origin-center mt-1 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear"></span>
+    <span id="line3" class="w-6 mt-1 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear"></span>
+    <!-- Texto accesible para lectores de pantalla -->
+    <span class="sr-only">togglenav</span>
+</button>
+<div data-navbar class="hidden">
+    <!-- Contenido del menú -->
+</div>
+<div data-nav-overlay class="hidden"></div>
