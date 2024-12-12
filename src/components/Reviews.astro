@@ -1,68 +1,74 @@
 <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet" />
 
-<script type="module">
+<script type="module" is:inline data-astro-rerun>
   import KeenSlider from 'https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm'
 
-  const keenSliderActive = document.getElementById('keen-slider-active')
-  const keenSliderCount = document.getElementById('keen-slider-count')
+  function setupKeenSlider() {
+    const keenSliderActive = document.getElementById('keen-slider-active')
+    const keenSliderCount = document.getElementById('keen-slider-count')
 
-  const keenSlider = new KeenSlider(
-    '#keen-slider',
-    {
-      loop: true,
-      defaultAnimation: {
-        duration: 750,
-      },
-      slides: {
-        origin: 'center',
-        perView: 1,
-        spacing: 16,
-      },
-      breakpoints: {
-        '(min-width: 640px)': {
-          slides: {
-            origin: 'center',
-            perView: 1.5,
-            spacing: 16,
+    const keenSlider = new KeenSlider(
+      '#keen-slider',
+      {
+        loop: true,
+        defaultAnimation: {
+          duration: 750,
+        },
+        slides: {
+          origin: 'center',
+          perView: 1,
+          spacing: 16,
+        },
+        breakpoints: {
+          '(min-width: 640px)': {
+            slides: {
+              origin: 'center',
+              perView: 1.5,
+              spacing: 16,
+            },
+          },
+          '(min-width: 768px)': {
+            slides: {
+              origin: 'center',
+              perView: 1.75,
+              spacing: 16,
+            },
+          },
+          '(min-width: 1024px)': {
+            slides: {
+              origin: 'center',
+              perView: 3,
+              spacing: 16,
+            },
           },
         },
-        '(min-width: 768px)': {
-          slides: {
-            origin: 'center',
-            perView: 1.75,
-            spacing: 16,
-          },
+        created(slider) {
+          slider.slides[slider.track.details.rel].classList.remove('opacity-40')
+
+          keenSliderActive.innerText = slider.track.details.rel + 1
+          keenSliderCount.innerText = slider.slides.length
         },
-        '(min-width: 1024px)': {
-          slides: {
-            origin: 'center',
-            perView: 3,
-            spacing: 16,
-          },
+        slideChanged(slider) {
+          slider.slides.forEach((slide) => slide.classList.add('opacity-40'))
+
+          slider.slides[slider.track.details.rel].classList.remove('opacity-40')
+
+          keenSliderActive.innerText = slider.track.details.rel + 1
         },
       },
-      created(slider) {
-        slider.slides[slider.track.details.rel].classList.remove('opacity-40')
+      []
+    )
 
-        keenSliderActive.innerText = slider.track.details.rel + 1
-        keenSliderCount.innerText = slider.slides.length
-      },
-      slideChanged(slider) {
-        slider.slides.forEach((slide) => slide.classList.add('opacity-40'))
+    const keenSliderPrevious = document.getElementById('keen-slider-previous')
+    const keenSliderNext = document.getElementById('keen-slider-next')
 
-        slider.slides[slider.track.details.rel].classList.remove('opacity-40')
+    keenSliderPrevious.addEventListener('click', () => keenSlider.prev())
+    keenSliderNext.addEventListener('click', () => keenSlider.next())
+  }
 
-        keenSliderActive.innerText = slider.track.details.rel + 1
-      },
-    },
-    []
-  )
-
-  const keenSliderPrevious = document.getElementById('keen-slider-previous')
-  const keenSliderNext = document.getElementById('keen-slider-next')
-
-  keenSliderPrevious.addEventListener('click', () => keenSlider.prev())
-  keenSliderNext.addEventListener('click', () => keenSlider.next())
+  document.addEventListener('astro:page-load', setupKeenSlider)
+  document.addEventListener('astro:after-swap', setupKeenSlider)
+  setupKeenSlider()
 </script>
 
 <section class="bg-trasparent">
