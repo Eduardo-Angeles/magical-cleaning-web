@@ -39,14 +39,11 @@ const { description, title } = Astro.props;
 		<Footer />
 	</body>
 
-  <script>
-    const toggleMenu = document.querySelector(
-      "[data-toggle-nav]"
-    ) as HTMLButtonElement;
-    const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
-    const overlayNav = document.querySelector(
-      "[data-nav-overlay]"
-    ) as HTMLDivElement;
+<script data-astro-rerun>
+  function initializeMenu() {
+    const toggleMenu = document.querySelector("[data-toggle-nav]");
+    const navbar = document.querySelector("[data-navbar]");
+    const overlayNav = document.querySelector("[data-nav-overlay]");
     if (toggleMenu) {
       toggleMenu.addEventListener("click", e => {
         e.preventDefault();
@@ -54,33 +51,34 @@ const { description, title } = Astro.props;
           toggleMenu.setAttribute("data-open-nav", "true");
           overlayNav.setAttribute("data-is-visible", "true");
           document.body.classList.add("!overflow-y-hidden");
-		  navbar.style.height = `${navbar.scrollHeight}px`
-
-        }else{
-			toggleMenu.setAttribute("data-open-nav", "false");
-        	overlayNav.setAttribute("data-is-visible", "false");
-        	document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
-		}
-		
-        
+          navbar.style.height = `${navbar.scrollHeight}px`;
+        } else {
+          toggleMenu.setAttribute("data-open-nav", "false");
+          overlayNav.setAttribute("data-is-visible", "false");
+          document.body.classList.remove("!overflow-y-hidden");
+          navbar.style.height = "0px";
+        }
       });
 
       navbar.addEventListener("click", () => {
         toggleMenu.setAttribute("data-open-nav", "false");
         overlayNav.setAttribute("data-is-visible", "false");
         document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
+        navbar.style.height = "0px";
       });
 
       overlayNav.addEventListener("click", () => {
         toggleMenu.setAttribute("data-open-nav", "false");
-        	overlayNav.setAttribute("data-is-visible", "false");
-        	document.body.classList.remove("!overflow-y-hidden");
-		  	navbar.style.height = "0px"
+        overlayNav.setAttribute("data-is-visible", "false");
+        document.body.classList.remove("!overflow-y-hidden");
+        navbar.style.height = "0px";
       });
     }
-  </script>
+  }
+
+  document.addEventListener('astro:page-load', initializeMenu);
+  document.addEventListener('astro:after-swap', initializeMenu);
+</script>
   
 </html>
 <style is:global>
