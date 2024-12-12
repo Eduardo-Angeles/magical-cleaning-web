@@ -3,6 +3,7 @@ import SocialPil from '../components/SocialPil.astro';
 import Gmail from '../components/icons/Gmail.astro';
 import Facebook from './icons/Facebook.astro';
 import Instagram from './icons/Instagram.astro';
+import Phone from './icons/Phone.astro';
 import Tiktok from './icons/Tiktok.astro';
 import Yelp from './icons/Yelp.astro';
 ---
@@ -159,7 +160,7 @@ import Yelp from './icons/Yelp.astro';
              Yelp
           </SocialPil>
 
-          <SocialPil href="https://mx.linkedin.com/"
+          <SocialPil href="tel:+1234567890"
             class={` 
               border border-green-400 rounded-full 
               flex justify-center items-center gap-x-2 
@@ -169,7 +170,8 @@ import Yelp from './icons/Yelp.astro';
               bg-green-400 hover:bg-green-600
             `}
           >
-            <Facebook class="size-6" />
+
+            <Phone class="size-6" />
             Phone
           </SocialPil>
 

@@ -1,0 +1,49 @@
+---
+import Services from "@components/Services.astro";
+
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class="bg-slate-200 dark:bg-slate-800 flex h-screen justify-center items-center flex-col">
+		<button id="toggle-theme" class=" border rounded p-3 bg-slate-800 dark:bg-slate-200 dark:text-slate-800 text-slate-200">Tooggle Dark Theme</button>
+		<h1 class="text-3xl font-bold text-slate-800 dark:text-slate-200 p-5">Astro Tailwind Dark Theme</h1>
+        <Services />
+	</body>
+<script>
+    // Obtiene el botón con el ID 'toggle-theme'
+    const themeToggle = document.getElementById('toggle-theme');
+    // Obtiene el elemento <html> del documento
+    const htmlElement = document.documentElement;
+
+    // Verifica si el tema almacenado en localStorage es 'dark'
+    if (localStorage.getItem('theme') === 'dark') {
+        // Si es 'dark', agrega la clase 'dark' al elemento <html>
+        htmlElement.classList.add('dark');
+    }
+
+    // Verifica si el botón 'themeToggle' existe
+    if (themeToggle) {
+        // Agrega un event listener al botón para el evento 'click'
+        themeToggle.addEventListener('click', () => {
+            // Alterna la clase 'dark' en el elemento <html>
+            htmlElement.classList.toggle('dark');
+            // Determina el nuevo tema basado en la presencia de la clase 'dark'
+            const newTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            // Almacena el nuevo tema en localStorage
+            localStorage.setItem('theme', newTheme);
+        });
+    } else {
+        // Muestra un mensaje de error en la consola si el botón no se encuentra
+        console.error('El elemento themeToggle no se encontró en el DOM.');
+    }
+</script>
+
+</html>

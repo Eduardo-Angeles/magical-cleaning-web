@@ -15,6 +15,17 @@ const { description, title } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="cleaning service, deep cleaning, maid service, Jersey City cleaning service,
+      New Jersey cleaning service, post-construction cleaning, move-out cleaning, carpet cleaning, magical cleaning">
+
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description} >
+    <meta property="og:image" content="URL de la imagen">
+    <meta property="og:url" content="https://magical-cleaningservice.com">
+    <meta property="og:type" content="website">
+
+
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
