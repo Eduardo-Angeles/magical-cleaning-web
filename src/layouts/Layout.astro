@@ -41,48 +41,8 @@ const { description, title } = Astro.props;
 		<Footer />
 	</body>
 
-<script data-astro-rerun>
-  function initializeMenu() {
-    const toggleMenu = document.querySelector("[data-toggle-nav]");
-    const navbar = document.querySelector("[data-navbar]");
-    const overlayNav = document.querySelector("[data-nav-overlay]");
-    if (toggleMenu) {
-      toggleMenu.addEventListener("click", e => {
-        e.preventDefault();
-        if (toggleMenu.getAttribute("data-open-nav") === "false") {
-          toggleMenu.setAttribute("data-open-nav", "true");
-          overlayNav.setAttribute("data-is-visible", "true");
-          document.body.classList.add("!overflow-y-hidden");
-          navbar.style.height = `${navbar.scrollHeight}px`;
-        } else {
-          toggleMenu.setAttribute("data-open-nav", "false");
-          overlayNav.setAttribute("data-is-visible", "false");
-          document.body.classList.remove("!overflow-y-hidden");
-          navbar.style.height = "0px";
-        }
-      });
-
-      navbar.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-        navbar.style.height = "0px";
-      });
-
-      overlayNav.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-        navbar.style.height = "0px";
-      });
-    }
-  }
-
-  document.addEventListener('astro:page-load', initializeMenu);
-  document.addEventListener('astro:after-swap', initializeMenu);
-</script>
-  
 </html>
+
 <style is:global>
   :root {
     --color-bg: 255 242 251;
@@ -90,9 +50,10 @@ const { description, title } = Astro.props;
     --color-box: 255 255 255;
     --box-border: 229 231 235;
     --box-sd: 226 232 240 / 0.5;
-	--heading-1:  23 37 84;
-	--heading-2: 31 41 55;
-	--heading-3: 55 65 81;
+    --heading-1:  23 37 84;
+    --heading-2: 31 41 55;
+    --heading-3: 55 65 81;
+    --color-icono: 0 0 0; /* Negro puro */
   }
 
   .dark {
@@ -101,12 +62,12 @@ const { description, title } = Astro.props;
     --box-border: 243 244 246/0.1;
     --box-sd: transparent;
 
-	
-	--heading-1:  255 255 255;
-	--heading-2:  243 244 246;
-	--heading-3:  209 213 219;
+    --heading-1:  255 255 255;
+    --heading-2:  243 244 246;
+    --heading-3:  209 213 219;
 
-  --altura_header: 80px;
+    --altura_header: 80px;
+    --color-icono: 255 255 255; /* Blanco puro */
   }
 
   html{
