@@ -105,6 +105,8 @@ const { description, title } = Astro.props;
 	--heading-1:  255 255 255;
 	--heading-2:  243 244 246;
 	--heading-3:  209 213 219;
+
+  --altura_header: 80px;
   }
 
   html{
@@ -130,6 +132,10 @@ const { description, title } = Astro.props;
     visibility: visible;
     display: flex;
   }
+
+.menu_hamburguesa{
+    display: none;
+}
 
 #header-nav {
     animation: blur-light linear both;

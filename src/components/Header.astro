@@ -1,9 +1,10 @@
 ---
 import Container from './shared/Container.astro';
-import  Navitem from "./shared/Navitem.astro";
+import Navitem from "./shared/Navitem.astro";
 import Button from "./Button.astro";
 import Logo from './Logo.astro';
 import SwitchTheme from './SwitchTheme.astro';
+import Hamburgermenu from './Hamburgermenu.tsx';
 
 const navItems = [
     {
@@ -94,25 +95,21 @@ const navItems = [
                </div>
             </div>
 
-            <div>
-                
-            </div>
             <div class="min-w-max flex items-center gap-x-3">
                 <SwitchTheme />
-
-                <!-- Botón para alternar el menú de navegación -->
-                <button data-toggle-nav data-open-nav="false" class="lg:hidden lg:invisible outline-none w-7 h-auto flex flex-col relative">
-                    <span id="line1" class="w-6 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear"></span>
-                    <span id="line2" class="w-6 origin-center mt-1 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear"></span>
-                    <span id="line3" class="w-6 mt-1 h-0.5 rounded-full bg-heading-2 transition-all duration-300 ease-linear"></span>
-                    <!-- Texto accesible para lectores de pantalla -->
-                    <span class="sr-only">togglenav</span>
-                </button>
-          
+                <Hamburgermenu client:load />
             </div>
             
         </nav>
+
+            
+    
     </Container>
+    
 </header>
+
+
+
+
 
 
